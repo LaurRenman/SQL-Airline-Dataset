@@ -117,5 +117,42 @@ ORDER BY French_Passengers DESC
 LIMIT 10;
 
 
+-- =============================================
+-- 7. Nombre de vols par groupes d'âges
+-- =============================================
+
+SELECT
+    AgeGroup,
+    COUNT(CASE WHEN FlightCountGroup = '<5' THEN 1 END) AS "<5",
+    COUNT(CASE WHEN FlightCountGroup = '5-9' THEN 1 END) AS "5-9",
+    COUNT(CASE WHEN FlightCountGroup = '10-14' THEN 1 END) AS "10-14",
+    COUNT(CASE WHEN FlightCountGroup = '>14' THEN 1 END) AS ">14"
+FROM (
+    SELECT
+        passengers.ID,
+        CASE
+            WHEN passengers.Age < 18 THEN '<18'
+            WHEN passengers.Age BETWEEN 18 AND 24 THEN '18-24'
+            WHEN passengers.Age BETWEEN 25 AND 34 THEN '25-34'
+            WHEN passengers.Age BETWEEN 35 AND 44 THEN '35-44'
+            WHEN passengers.Age BETWEEN 45 AND 54 THEN '45-54'
+            WHEN passengers.Age BETWEEN 55 AND 64 THEN '55-64'
+            ELSE '>64'
+        END AS AgeGroup,
+        CASE
+            WHEN COUNT(reservations.ID) < 5 THEN '<5'
+            WHEN COUNT(reservations.ID) BETWEEN 5 AND 9 THEN '5-9'
+            WHEN COUNT(reservations.ID) BETWEEN 10 AND 14 THEN '10-14'
+            ELSE '>14'
+        END AS FlightCountGroup
+    FROM passengers
+    LEFT JOIN reservations ON passengers.ID = Passenger_ID
+    GROUP BY passengers.ID, passengers.Age
+) AS grouped
+GROUP BY AgeGroup
+ORDER BY AgeGroup;
+
+
+
 
 
