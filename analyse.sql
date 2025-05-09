@@ -62,7 +62,7 @@ FROM routes
 JOIN airports
     ON airports.ID = `Departure Airport ID` OR airports.ID = `Arrival Airport ID`
 GROUP BY airports.ID, `Name`
-ORDER BY Delayed_Flights DESC;
+ORDER BY Delay_Ratio DESC, Total_Flights DESC;
 
 
 -- =============================================
