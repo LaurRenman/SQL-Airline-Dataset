@@ -1,4 +1,7 @@
--- Passengers with most flights
+-- =============================================
+-- 1. Analyse des passagers fréquents
+-- =============================================
+-- Requête pour identifier les passagers ayant effectué le plus de vols
 SELECT `First Name`,`Last Name`,COUNT(Passenger_ID) AS reservation_count
 FROM passengers
 JOIN reservations ON passengers.ID = Passenger_ID
