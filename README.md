@@ -11,7 +11,7 @@ Nous sommes une agence de consulting data spécialisée dans l'analyse des vols 
 
 Nous avons conçu un environnement complet autour de cette base :
 - Collecte de données via Kaggle.
-- Nettoyage et filitrage pour ne garder que les informations pertinentes à notre projet.
+- Nettoyage et filtrage pour ne garder que les informations pertinentes à notre projet.
 - Génération de données synthétiques pour relier plusieurs jeux de données de sources différentes.
 - Modélisation normalisée (six tables en 3NF, c'est-à-dire que les tables sont structurées de manière à évtier les redondances et dépendances).
 - Requêtes SQL pour démontrer des cas d'usage réels : vues, agrégations, segmentation clients etc...
@@ -35,8 +35,13 @@ Auteur : Ahmad Rafiee (https://www.kaggle.com/datasets/ahmadrafiee/airports-airl
 - Import des fichiers csv dans MySQL via LOAD DATA INFILE
 ---
 
-## 3. Modèle Conceptuel et Schéma Relationnel
-### 3.1 Entités et Attributs
+## 3. Serveur MySql
+
+Nous avons choisi d’héberger notre serveur dans le Google Cloud. La facilité d’utilisation et la rapidité de mise en place de l’environnement de travail ont été les principaux facteurs dans le choix de l’hébergement. L’accès à la base de données se fait à l’aide d’une adresse host du serveur, d’un user et d’un mot de passe avec une autorisation de l’adresse client nécessaire au préalable. La mise en place du serveur nous a permis d’appréhender un environnement de travail très proche des conditions réelles de gestion de base de données et nous a permis de nous familiariser avec l’interface de MySql et avec les outils de gestion de serveur.
+
+
+## 4. Modèle Conceptuel et Schéma Relationnel
+### 4.1 Entités et Attributs
 
 | Table            | Attributs clés                                                         |
 |------------------|-------------------------------------------------------------------------|
@@ -49,7 +54,7 @@ Auteur : Ahmad Rafiee (https://www.kaggle.com/datasets/ahmadrafiee/airports-airl
 
 (Class peut prendre trois valeurs possibles : Economic, Business et First) 
 
-### 3.2 Diagramme ER (Mermaid)
+### 4.2 Diagramme ER (Mermaid)
 
 ```mermaid
 erDiagram
@@ -103,13 +108,13 @@ erDiagram
     }
 ```
 
-## 4. Optimisations et Requêtes Avancées
+## 5. Optimisations et Requêtes Avancées
 La base de données permet les opérations suivantes :
 - Vues SQL synthétiques (par destination, par passager, etc.)
 - Opérations simples (aéroport les plus visités, retard par compagnie, etc.)
 - Segmentation clients (passagers fréquents, type de classe, etc.)
 
-# 5. Limitations et Evolutions Futures
+# 6. Limitations et Evolutions Futures
 
 ### Limitations
 
@@ -119,7 +124,7 @@ La base de données permet les opérations suivantes :
 - **Manque de certaines dimensions**  
   Aucune donnée sur le personnel navigant ou la satisfaction client.
 - **Pas de temps réel**  
-  Pas de suivi live des vols ni mise à jour instantanée. Aucune pipeline pour alimentée notre base de donnée comme elle est fictive.
+  Pas de suivi live des vols ni de mise à jour instantanée. Aucune pipeline pour alimenter notre base de donnée comme elle est fictive.
 
 ### Perspectives d’évolution
 
@@ -127,7 +132,7 @@ La base de données permet les opérations suivantes :
    Permettre le suivi du statut de chaque vol (en route, atterri, annulé).
 
 2. **Trouvées de nouvelles tables**  
-   Trouver une base de donnée sur le personnel et la satisfaction des passagers.
+   Trouver une base de données sur le personnel et la satisfaction des passagers.
 
-3. **Géocodage et altitude plus précis**  
+3. **Géocodage et altitude plus précise**  
    Ajouter des coordonnées 3D détaillées (latitude, longitude, altitude) pour des analyses de trajectoire.
