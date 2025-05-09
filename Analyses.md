@@ -27,8 +27,8 @@ HAVING COUNT(Passenger_ID) > 14
 ORDER BY reservation_count DESC
 ```
 
-Tous les passagers ne voyagent pas à la même fréquence. Aussi, les voyageurs qui se déplacent beaucoup ne prennent pas toujours la même compagnie aérienne. Dans notre base de donnée, nous avons groupés les voyageurs en plusieurs catégories: ceux qui voyagent énormement (plus de 14 vols), ceux qui voyages régulièrement (entre 10 et 14 vols), ceux qui voyagent modérément (entre 5 et 9 vols) et ceux qui voyagent peu (moins de 5 vols).  
-Notre base de donnée rescence une quinzaine de voyageurs qui voyagent de manière très fréquentes. Ainsi, nos partenaires pourraient récolter ces informations pour mener des campagnes de fidélisations efficaces envers ces voyageurs selon leur profil et les routes emprunter. On pourrait même recommander les individus qui voyagent régulièrement. La fidélisation de ces voyageurs permettraient d'augmenter le revenus de nos partenaires et d'améliorer potentiellement leur image de marque.
+Tous les passagers ne voyagent pas à la même fréquence. Aussi, les voyageurs qui se déplacent beaucoup ne prennent pas toujours la même compagnie aérienne. Dans notre base de données, nous avons groupé les voyageurs en plusieurs catégories: ceux qui voyagent énormement (plus de 14 vols), ceux qui voyagent régulièrement (entre 10 et 14 vols), ceux qui voyagent modérément (entre 5 et 9 vols) et ceux qui voyagent peu (moins de 5 vols).  
+Notre base de données recense une quinzaine de voyageurs qui voyagent de manière très fréquente. Ainsi, nos partenaires pourraient récolter ces informations pour mener des campagnes de fidélisation efficaces envers ces voyageurs selon leur profil et les routes empruntées. On pourrait même recommander les individus qui voyagent régulièrement. La fidélisation de ces voyageurs permettrait d'augmenter le revenu de nos partenaires et d'améliorer potentiellement l'image de la marque.
 
 ## 2. Compagnies aériennes avec le plus de retards (en ratio retards/vols totaux)
 
@@ -50,8 +50,8 @@ HAVING COUNT(DISTINCT reservations.`Route ID`) > 0
 ORDER BY Delay_Rate_Per_Flight DESC, Total_Flights DESC;
 ```
 Problème identifié:  
-Beaucoup de compagnies aériennes ont un ratio de retard extrêmement élevés. Par exemple, Alaska Central Express a un taux de retard de 100%, et c'est loin d'être la seule compagnie aérienne. Chaque minute de retard coûte entre 70 et 150 dollars à une compagnie aérienne. Ensuite, au-delà de la perte financière directe, le retard nuit à l’image de marque, augmente les coûts de compensation, et impacte la fidélisation des passagers.  
-Grâce à notre base de donnée, nous avons pu repérer de potentiels partenaires qui pourraient bénéficier d'une étude approfondie de notre part sur la cause des retards pour optimiser leur revenu. 
+Beaucoup de compagnies aériennes ont un ratio de retard extrêmement élevé. Par exemple, Alaska Central Express a un taux de retard de 100%, et c'est loin d'être la seule compagnie aérienne. Chaque minute de retard coûte entre 70 et 150 dollars à une compagnie aérienne. Ensuite, au-delà de la perte financière directe, le retard nuit à l’image de la marque, augmente les coûts de compensation, et impacte la fidélisation des passagers.  
+Grâce à notre base de données, nous avons pu repérer de potentiels partenaires qui pourraient bénéficier d'une étude approfondie de notre part sur la cause des retards pour optimiser leur revenu. 
 
 Exemple:  
 -Alaska Central Express  
@@ -74,7 +74,7 @@ JOIN airports
 GROUP BY airports.ID, `Name`
 ORDER BY Delay_Ratio DESC, Total_Flights DESC;
 ```
-Un premier KPI pertinent pour l'analyse des causes de retard que nous avons produits est le ratio de retard par vol dans les différents aéroports. On y observe de nombreux aéroports qui connaissent des retard systématiques comme l'aéroport Dikson en Russie qui a un ration de 100%. En comparaison, l'aéroport de Ben Schoeman en Afrique du Sud a un ratio de 0% de vols retardés. Il est clair que l'organisation d'un aéroport est un facteur important dans les retards de vols. C'est pourquoi nos analyses peuvent être utiles dans l'optimisation de route et la prédiction de retard (ainsi que des coûts liés) pour une compagnie aérienne.
+Un premier KPI pertinent pour l'analyse des causes de retard que nous avons produits est le ratio de retard par vol dans les différents aéroports. On y observe de nombreux aéroports qui connaissent des retard systématiques comme l'aéroport Dikson en Russie qui a un ration de 100%. En comparaison, l'aéroport de Ben Schoeman en Afrique du Sud a un ratio de 0% de vols retardés. Il est clair que l'organisation d'un aéroport est un facteur important dans les retards de vols. C'est pourquoi nos analyses peuvent être utiles dans l'optimisation de routes et la prédiction de retards (ainsi que des coûts liés) pour une compagnie aérienne.
 
 ## 3. Avions (modèles) avec le plus de vols
 
@@ -88,9 +88,9 @@ ORDER BY Number_of_Flights DESC
 LIMIT 10;
 ```
 
-Les modèles Airbus semblent être les plus populaires. En effet, les deux modèles d'avions les plus utilisés sont l'Airbus A350 (20 vols) et l'Airbus A300-600 (16 vols). Ces avions semblent être les champions des voyages aérien, et ont un rôle crucial dans les opérations de nos compagnies aériennes. Ils sont nécessaires et semblent fiables pour des itinéraires avec une forte demande.  
-Nos compagnies partenaires peuvent donc utiliser cette information pour maximiser l'utilisation de l'A350 et l'A300-600 sur les itinéraires les plus rentables out en surveillant les coûts associés à son entretien et à sa gestion. De plus, avec les événements récents, nos partenaires pourraient investir dans une communication pour promouvoir l'utilisatio d'avions fiables de Airbus et tenter de capter une part plus importante de marché. 
-Des analyses plus approfondies pourront également être mené pour les petites compagnies aériennes qui recherchent des opportunités cachées. Des avions sous-utilisés (et donc un prix plus faible) qui pourrait être tout aussi fiable qu'un Airbus A350.  
+Les modèles Airbus semblent être les plus populaires. En effet, les deux modèles d'avions les plus utilisés sont l'Airbus A350 (20 vols) et l'Airbus A300-600 (16 vols). Ces avions semblent être les champions des voyages aériens, et ont un rôle crucial dans les opérations de nos compagnies aériennes. Ils sont nécessaires et semblent fiables pour des itinéraires avec une forte demande.  
+Nos compagnies partenaires peuvent donc utiliser cette information pour maximiser l'utilisation de l'A350 et l'A300-600 sur les itinéraires les plus rentables tout en surveillant les coûts associés à leur entretien et gestion. De plus, avec les événements récents, nos partenaires pourraient investir dans une communication pour promouvoir l'utilisation d'avions fiables Airbus et tenter de capter une part plus importante de marché. 
+Des analyses plus approfondies pourront également être menées pour les petites compagnies aériennes qui recherchent des opportunités cachées. Des avions sous-utilisés (et donc un prix plus faible) qui pourraient être tout aussi fiables qu'un Airbus A350.  
 En résumé, cette analyse permet d'étudier les tendances sur les modèles utilisés par les compagnies aériennes, et est également une porte d'entrée pour des analyses plus approfondies sur la stratégie d'achat de nouveaux modèles.
 
 ## 4. Analyse des aéroports les plus fréquentés
@@ -150,7 +150,7 @@ ORDER BY French_Passengers DESC
 LIMIT 10;
 ```
 
-Les passagers de nationalité française montrent une forte concentration de leurs voyages vers un petit nombre de pays, ce qui expose la compagnie à une dépendance à ces marchés. Cette surreprésentation peut devenir problématique, ca un événement géopolitique ou sanitaire aux États-Unis impacterait lourdement le chiffre d’affaires. Opportunité qui manque sont les marchés secondaires comme l’Indonésie ou la Chine sont moins exploités malgré un potentiel de croissance. On pourrait proposer des « tours du monde » ou passes continentaux (Amérique, Océanie) qui combinent plusieurs de ces pays à prix avantageux.
+L’analyse des destinations les plus prisées des Français est très pertinente lorsqu’on cherche à se situer sur le marché. On remarque une forte demande pour les Etats-Unis et le Canada ce qui pourrait orienter une compagnie aérienne souhaitant s’introduire sur le marché français vers un potentiel investissement dans des routes transatlantiques. Ce genre d’analyse permet de rendre compte des destinations favorites des ressortissants de chaque pays et ainsi donner une image de la demande pour des vols internes/ internationaux.
 
 ## 6. Distribution du nombre de réservations par tranche d'âge
 
