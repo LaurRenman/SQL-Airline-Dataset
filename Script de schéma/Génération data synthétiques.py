@@ -32,7 +32,7 @@ def generate_flight_data(input_dir='.', output_dir='.'):
     
     # 1. Generate Routes
     print("\nGenerating routes.csv...")
-    route_count = 500
+    route_count = 2500
     
     # Get IDs for reference
     airport_ids = airports['ID'].tolist()
@@ -71,7 +71,7 @@ def generate_flight_data(input_dir='.', output_dir='.'):
     
     # 2. Generate Reservations
     print("\nGenerating reservations.csv...")
-    reservation_count = 2000
+    reservation_count = 15000
     
     # Service classes
     service_classes = ["Economy", "Business", "First"]
