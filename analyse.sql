@@ -10,7 +10,10 @@ ORDER BY reservation_count DESC
 LIMIT 100;
 
 
--- Airlines with most delays
+-- =============================================
+-- 2. Compagnies aériennes avec le plus de retards
+-- =============================================
+-- Requête pour identifier les compagnies ayant enregistré le plus de vols retardés
 SELECT `Name` AS Airline_Name, COUNT(*) AS Number_of_Delays
 FROM reservations
 JOIN routes ON `Route ID` = routes.ID
