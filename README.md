@@ -1,48 +1,42 @@
 # Document de Conception de la Base de Données
 
-# 1. Contexte et Objectifs
+## 1. Objectifs et Portée
 
-## Document de Conception de la Base de Données
+Nous sommes une agence de consulting data spécialisée dans l'analyse des vols aériens. Ce projet vise à concevoir une base de données analytique sous MySQL afin de permettre à nos partenaires du secteur aérien :
+- Optimiser leurs opérations
+- Fidéliser des passagers
+- Piloter leur stratégie en prenant des décisions basés sur des analyses fiables et exploitables.
 
-## 1. Contexte et Objectifs
+### Création et Manipulation
 
-**Projet Final** – Nous considérons que nous somme une agence de consulting data spécialisé dans les vols aériens et nous développons une base de données MySQL pour réaliser des analyses.
+Nous avons conçu un environnement complet autour de cette base :
+- Collecte de données via Kaggle.
+- Nettoyage et filitrage pour ne garder que les informations pertinentes à notre projet.
+- Génération de données synthétiques pour relier plusieurs jeux de données de sources différentes.
+- Modélisation normalisée (six tables en 3NF, c'est-à-dire que les tables sont structurées de manière à évtier les redondances et dépendances).
+- Requêtes SQL pour démontrer des cas d'usage réels : vues, agrégations, segmentation clients etc...
+- Analyse des résultats pour extraire des informations utiles à la prise de décision.
+---
+## 2. Sources des données et préparation
 
-- **Mission** : Aider nos compagnies aériennes partenaires à optimiser leurs opérations, améliorer l’expérience passager et piloter la stratégie métier à l’aide d’analyses fiables.  
+Nous utilisons deux jeux de données publics disponibles sur Kaggle :
+1. Airline Dataset  
+Contient des informations sur plus de 90 000 passagers fictifs (réduits à 2 000 pour notre projet).  
+Auteur : Sourav Banerjee (https://www.kaggle.com/datasets/iamsouravbanerjee/airline-dataset)
+2. Airports, Airlines, Planes & Routes [Update 2024]
+Contient des vraies informations sur les vols, aéroports, avions et compagnies obtenues depuis OpenFlights.  
+Auteur : Ahmad Rafiee (https://www.kaggle.com/datasets/ahmadrafiee/airports-airlines-planes-and-routes-update-2024?select=routes.csv)
 
-**Création et manipulation**  
-- Récupération de données sur plusieurs jeux de données disponible sur kaggle
-- Nettoyage de donnée pour garder les informations importantes
-- Génération de nouvelles données pour lier les deux jeux de données et faire une base de donnée cohérente.
-- Schéma clair (six tables normalisées).  
-- Requêtes SQL avancées (agrégations, vues, analyses temporelles) pour illustrer la manipulation.
-- Analyse des résultats obtenues pour obtenir des informations utiles à la prise de décision.
-
-> **Base de donnée analytique** : traitement de données passés, analyse des tendances.
-
+### Etapes de Transformation
+- Suppression de colonnes inutiles via Python (Pandas).
+- Attribution des IDs pour chaque table
+- Génération de deux nouvelles tables synthétiques : Reservations.csv et Routes.csv
+- Application de filtres (2000 passagers, 2500 routes, 15000 réservations)
+- Import des fichiers csv dans MySQL via LOAD DATA INFILE
 ---
 
-# 2. Données Sources et Adaptation
-
-Nous utilisons des jeux de données publics et synthétiques disponibles sur kaggle :
-
-1. **Airline Dataset** – Jeu de données qui contient plus de 90 0000 passagés fictifs (réduit à 2000 dans notre base de donnée). Auteur : Sourav Banerjee (https://www.kaggle.com/datasets/iamsouravbanerjee/airline-dataset) 
-2. **Airports, Airlines, Planes & Routes [Update 2024]** - Jeu de données sur les voyage aériens qui inclut des aéroports, des compagnies aériennes et des avions. La base de donnée a été compilée depuis OpenFlights. Auteur : Ahmad Rafiee (https://www.kaggle.com/datasets/ahmadrafiee/airports-airlines-planes-and-routes-update-2024?select=routes.csv)
-
-**Étapes de nettoyage et d’ingestion** :
-
-- Scripts Python (Pandas) pour :
-  - Supprimer colonnes inutiles.
-  - Renumérotation des IDs.
-  - Générations de deux tables (reservations et routes) pour mettre en lien les différents fichiers csv.
-  - Filtrage (passagers limités à 2 000, routes à 2 500, réservations à 15 000).
-- Export en CSV puis import dans MySQL via `LOAD DATA INFILE`.
-
----
-
-# 3. Modèle Conceptuel et Schéma Relationnel
-
-## 3.1 Entités et Attributs
+## 3. Modèle Conceptuel et Schéma Relationnel
+### 3.1 Entités et Attributs
 
 | Table            | Attributs clés                                                         |
 |------------------|-------------------------------------------------------------------------|
@@ -53,7 +47,7 @@ Nous utilisons des jeux de données publics et synthétiques disponibles sur kag
 | **Airlines**     | `ID (PK)`, Name, Country                                               |
 | **Airplanes**    | `ID (PK)`, ModelName                                                    |
 
-## 3.2 Diagramme ER (Mermaid)
+### 3.2 Diagramme ER (Mermaid)
 
 ```mermaid
 erDiagram
@@ -107,22 +101,22 @@ erDiagram
     }
 ```
 
-# 4. Requêtes Avancées et Analyse
+## 4. Optimisations et Requêtes Avancées
+La base de données permet les opérations suivantes :
+- Vues SQL synthétiques (par destination, par passager, etc.)
+- Opérations simples (aéroport les plus visités, retard par compagnie, etc.)
+- Segmentation clients (passagers fréquents, type de classe, etc.)
 
 # 5. Limitations et Evolutions Futures
 
 ### Limitations
 
 - **Données synthétiques**  
-  Retards et classes de service non représentatifs de la réalité.
+  Les prénoms, routes ou nationalités ne sont pas réalistes ou cohérents
 
-- **Réalisme limité**  
-  Les prénoms et les noms des passagers ne collent pas avec leur nationalité.
-
-- **Dimension pilote**  
-  Nous n'avons pas d'informations sur les pilotes
-
-- **Analyses temps réel**  
+- **Manque de certaines dimensions**  
+  Aucune donnée sur le personnel navigant ou la satisfaction client.
+- **Pas de temps réel**  
   Pas de suivi live des vols ni mise à jour instantanée. Aucune pipeline pour alimentée notre base de donnée comme elle est fictive.
 
 ### Perspectives d’évolution
@@ -130,8 +124,8 @@ erDiagram
 1. **Ingestion de logs de vol en temps réel**  
    Permettre le suivi du statut de chaque vol (en route, atterri, annulé).
 
-2. **Table `Pilots` et liaisons**  
-   Modéliser les pilotes pour analyser la performance de l’équipage et créer des rapports individuels.
+2. **Trouvées de nouvelles tables**  
+   Trouver une base de donnée sur le personnel et la satisfaction des passagers.
 
 3. **Géocodage et altitude plus précis**  
-   Ajouter des coordonnées 3D détaillées (latitude, longitude, altitude) et éventuellement des données MSL/AGL pour des analyses de trajectoire.
+   Ajouter des coordonnées 3D détaillées (latitude, longitude, altitude) pour des analyses de trajectoire.
