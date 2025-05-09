@@ -9,6 +9,31 @@ GROUP BY passengers.ID, `First Name`, `Last Name`
 ORDER BY reservation_count DESC
 LIMIT 100;
 
+-- Passengers with bronze 
+SELECT `First Name`,`Last Name`,COUNT(Passenger_ID) AS reservation_count
+FROM passengers
+JOIN reservations ON passengers.ID = Passenger_ID
+GROUP BY passengers.ID, `First Name`, `Last Name`
+HAVING COUNT(Passenger_ID) BETWEEN 5 AND 9
+ORDER BY reservation_count DESC
+
+-- Passengers with silver
+SELECT `First Name`,`Last Name`,COUNT(Passenger_ID) AS reservation_count
+FROM passengers
+JOIN reservations ON passengers.ID = Passenger_ID
+GROUP BY passengers.ID, `First Name`, `Last Name`
+HAVING COUNT(Passenger_ID) BETWEEN 10 AND 14
+ORDER BY reservation_count DESC
+
+-- Passengers with gold
+SELECT `First Name`,`Last Name`,COUNT(Passenger_ID) AS reservation_count
+FROM passengers
+JOIN reservations ON passengers.ID = Passenger_ID
+GROUP BY passengers.ID, `First Name`, `Last Name`
+HAVING COUNT(Passenger_ID) > 14
+ORDER BY reservation_count DESC
+
+
 
 -- =============================================
 -- 2. Compagnies aériennes avec le plus de retards
