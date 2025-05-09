@@ -1,14 +1,6 @@
 -- =============================================
--- 1. Analyse des passagers fréquents
+-- 1. Analyse des passagers qui voyagent le plus 
 -- =============================================
--- Requête pour identifier les passagers ayant effectué le plus de vols
-SELECT `First Name`,`Last Name`,COUNT(Passenger_ID) AS reservation_count
-FROM passengers
-JOIN reservations ON passengers.ID = Passenger_ID
-GROUP BY passengers.ID, `First Name`, `Last Name`
-ORDER BY reservation_count DESC
-LIMIT 100;
-
 -- Passagers avec entre 5 et 9 vols
 SELECT `First Name`,`Last Name`,COUNT(Passenger_ID) AS reservation_count
 FROM passengers
