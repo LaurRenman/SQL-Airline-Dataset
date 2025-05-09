@@ -23,7 +23,10 @@ GROUP BY `Name`
 ORDER BY Number_of_Delays DESC
 LIMIT 50;
 
--- Airplanes with most flights 
+-- =============================================
+-- 3. Avions (modèles) avec le plus de vols
+-- =============================================
+-- Requête pour identifier les modèles d'avion les plus utilisés
 SELECT `Name` AS Aircraft_Model, COUNT(reservations.ID) AS Number_of_Flights
 FROM reservations
 JOIN routes ON `Route ID` = routes.ID
