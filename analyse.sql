@@ -36,9 +36,9 @@ ORDER BY reservation_count DESC
 
 
 -- =============================================
--- 2. Compagnies aériennes avec le plus de retards (en ratio retards/vols totaux)
+-- 2. Analyse des retards par copagnie et par aéroport
 -- =============================================
--- Requête pour identifier les compagnies ayant enregistré le plus de vols retardés
+-- 2.1 Nombre de compagnies aériennes qui accumulent le plus de retards
 SELECT 
     airlines.`Name` AS Airline_Name,
     COUNT(DISTINCT reservations.`Route ID`) AS Total_Flights,
@@ -55,8 +55,26 @@ GROUP BY airlines.`Name`
 HAVING COUNT(DISTINCT reservations.`Route ID`) > 0
 ORDER BY Delay_Rate_Per_Flight DESC, Total_Flights DESC;
 
+-- 2.2 Nombre de vols retardés par aéroport
+
+SELECT
+    `Name` AS Airport_Name,
+    `Country`,
+    COUNT(*) AS Total_Flights,
+    SUM(CASE WHEN `Delayed` = 1 THEN 1 ELSE 0 END) AS Delayed_Flights,
+    ROUND(
+        SUM(CASE WHEN `Delayed` = 1 THEN 1 ELSE 0 END) * 1.0 / COUNT(*),
+        3
+    ) AS Delay_Ratio
+FROM routes
+JOIN airports
+    ON airports.ID = `Departure Airport ID` OR airports.ID = `Arrival Airport ID`
+GROUP BY airports.ID, `Name`
+ORDER BY Delayed_Flights DESC;
+
+
 -- =============================================
--- 3. Avions (modèles) avec le plus de vols
+-- 3. Analyse des avions utilisés 
 -- =============================================
 -- Requête pour identifier les modèles d'avion les plus utilisés
 SELECT `Name` AS Aircraft_Model, COUNT(reservations.ID) AS Number_of_Flights
@@ -68,9 +86,9 @@ ORDER BY Number_of_Flights DESC
 LIMIT 10;
 
 -- =============================================
--- 4. Aéroports les plus fréquentés
+-- 4. Analyse des aéroports les plus fréquentés
 -- =============================================
--- 4.1 Création des vues intermediaires pour départs et arrivées
+-- 4.1.1 Création des vues intermediaires pour départs et arrivées
 CREATE VIEW airport_departures AS
 SELECT `Departure Airport ID` AS Airport_ID, COUNT(reservations.ID) AS Departures
 FROM reservations
@@ -83,7 +101,7 @@ FROM reservations
 JOIN routes ON `Route ID`= routes.ID
 GROUP BY `Arrival Airport ID`;
 
--- 4.2 Vue agrégée des visites (départs + arrivées)
+-- 4.1.2 Vue agrégée des visites (départs + arrivées)
 CREATE VIEW airport_visits AS
 SELECT airports.ID,`Name`,City,Country,
     (IFNULL(Departures, 0) + IFNULL(Arrivals, 0)) AS Total_Visits,
@@ -93,14 +111,14 @@ FROM airports
 LEFT JOIN airport_departures ON airports.ID =  airport_departures.Airport_ID
 LEFT JOIN airport_arrivals ON airports.ID = airport_arrivals.Airport_ID; 
 
--- 4.3 Sélection finale des aéroports les plus fréquentés
+-- 4.1.3 Sélection finale des aéroports les plus fréquentés
 SELECT * 
 FROM airport_visits
 ORDER BY Total_Visits DESC;
 
--- =============================================
--- 5. Compagnies les plus populaires en nombre de passagers
--- =============================================
+
+-- 4.2 Analyse des compagnies les plus fréquentés
+
 SELECT `Name` AS Airline_Name, COUNT(Passenger_ID) AS Number_of_Passengers
 FROM reservations
 JOIN routes ON `Route ID` = routes.ID
@@ -110,7 +128,7 @@ ORDER BY Number_of_Passengers DESC;
 
 
 -- =============================================
--- 6. Top 10 des destinations favories des voyageurs français par pays 
+-- 5. Analyse des destinations favories des voyageurs français par pays 
 -- =============================================
 
 SELECT airports.Country AS Airport_Country,
@@ -125,7 +143,7 @@ LIMIT 10;
 
 
 -- =============================================
--- 7. Distribution du nombre réservations par tranche d'âge
+-- 7. Distribution du nombre de réservations par tranche d'âge
 -- =============================================
 
 
