@@ -10,16 +10,15 @@
 
 - **Mission** : Aider nos compagnies aériennes partenaires à optimiser leurs opérations, améliorer l’expérience passager et piloter la stratégie métier à l’aide d’analyses fiables.  
 
-> **Création et manipulation**  
-> - Récupération de données sur plusieurs jeux de données disponible sur kaggle
-> - Nettoyage de donnée pour garder les informations importantes
-> - Génération de nouvelles données pour lier les deux jeux de données et faire une base de donnée cohérente.
-> - Schéma clair (six tables normalisées).  
-> - Requêtes SQL avancées (agrégations, vues, analyses temporelles) pour illustrer la manipulation.
-> - Analyse des résultats obtenues pour obtenir des informations utiles à la prise de décision.
+**Création et manipulation**  
+- Récupération de données sur plusieurs jeux de données disponible sur kaggle
+- Nettoyage de donnée pour garder les informations importantes
+- Génération de nouvelles données pour lier les deux jeux de données et faire une base de donnée cohérente.
+- Schéma clair (six tables normalisées).  
+- Requêtes SQL avancées (agrégations, vues, analyses temporelles) pour illustrer la manipulation.
+- Analyse des résultats obtenues pour obtenir des informations utiles à la prise de décision.
 
-> **Type de base**  
-> - **Analytique** : traitement de volumes historiques (réservations, retards), production de KPIs et tableaux de bord.
+> **Base de donnée analytique** : traitement de données passés, analyse des tendances.
 
 ---
 
