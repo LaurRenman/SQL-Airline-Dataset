@@ -1,0 +1,247 @@
+ID,Name
+1,Aerospatiale (Nord) 262
+2,Aerospatiale (Sud Aviation) Se.210 Caravelle
+3,Aerospatiale SN.601 Corvette
+4,Aerospatiale/Alenia ATR 42-300
+5,Aerospatiale/Alenia ATR 42-500
+6,Aerospatiale/Alenia ATR 42-600
+7,Aerospatiale/Alenia ATR 72
+8,Airbus A300
+9,Airbus A300-600
+10,Airbus A300-600ST Super Transporter / Beluga
+11,Airbus A310
+12,Airbus A318
+13,Airbus A319
+14,Airbus A319neo
+15,Airbus A320
+16,Airbus A320neo
+17,Airbus A321
+18,Airbus A321neo
+19,Airbus A330
+20,Airbus A330-200
+21,Airbus A330-300
+22,Airbus A330-700 Beluga XL
+23,Airbus A330-800neo
+24,Airbus A330-900neo
+25,Airbus A340
+26,Airbus A340-200
+27,Airbus A340-300
+28,Airbus A340-500
+29,Airbus A340-600
+30,Airbus A350
+31,Airbus A350-1000
+32,Airbus A350-900
+33,Airbus A380
+34,Airbus A380-800
+35,Antonov AN-12
+36,Antonov AN-124 Ruslan
+37,Antonov AN-140
+38,Antonov An-148
+39,Antonov An-158
+40,Antonov An-225 Mriya
+41,Antonov AN-24
+42,Antonov AN-26
+43,Antonov AN-28
+44,Antonov AN-30
+45,Antonov AN-32
+46,Antonov AN-72
+47,Avro RJ100
+48,Avro RJ70
+49,Avro RJ85
+50,BAe 146
+51,BAe 146-100
+52,BAe 146-200
+53,BAe 146-300
+54,Beechcraft 1900
+55,Beechcraft Baron
+56,Beechcraft Baron / 55 Baron
+57,Bell 212
+58,Boeing 707
+59,Boeing 717
+60,Boeing 720B
+61,Boeing 727
+62,Boeing 727-100
+63,Boeing 727-200
+64,Boeing 737
+65,Boeing 737 MAX 10
+66,Boeing 737 MAX 7
+67,Boeing 737 MAX 8
+68,Boeing 737 MAX 9
+69,Boeing 737-200
+70,Boeing 737-300
+71,Boeing 737-400
+72,Boeing 737-500
+73,Boeing 737-600
+74,Boeing 737-700
+75,Boeing 737-800
+76,Boeing 737-900
+77,Boeing 747
+78,Boeing 747 LCF Dreamlifter
+79,Boeing 747-100
+80,Boeing 747-200
+81,Boeing 747-300
+82,Boeing 747-400
+83,Boeing 747-400D
+84,Boeing 747-8
+85,Boeing 747SP
+86,Boeing 747SR
+87,Boeing 757
+88,Boeing 757-200
+89,Boeing 757-300
+90,Boeing 767
+91,Boeing 767-200
+92,Boeing 767-300
+93,Boeing 767-400
+94,Boeing 777
+95,Boeing 777-200
+96,Boeing 777-200LR
+97,Boeing 777-300
+98,Boeing 777-300ER
+99,Boeing 777-8
+100,Boeing 777-9
+101,Boeing 787
+102,Boeing 787-10
+103,Boeing 787-8
+104,Boeing 787-9
+105,Bombardier 415
+106,Bombardier BD-100 Challenger 300
+107,Bombardier CS100
+108,Bombardier CS300
+109,Bombardier Global Express
+110,British Aerospace (BAC) One Eleven
+111,British Aerospace 125 series / Hawker/Raytheon 700/800/800XP/850/900
+112,British Aerospace 125-1000 series / Hawker/Raytheon 1000
+113,British Aerospace ATP
+114,British Aerospace Jetstream 31
+115,British Aerospace Jetstream 32
+116,British Aerospace Jetstream 41
+117,Canadair Challenger
+118,Canadair CL-44
+119,Canadair Regional Jet 100
+120,Canadair Regional Jet 1000
+121,Canadair Regional Jet 200
+122,Canadair Regional Jet 700
+123,Canadair Regional Jet 900
+124,Cessna 152
+125,Cessna 172
+126,Cessna 182 Skylane
+127,Cessna 208 Caravan
+128,Cessna 210 Centurion
+129,Cessna Citation CJ3
+130,Cessna Citation CJ4
+131,Cessna Citation Excel
+132,Cessna Citation I
+133,Cessna Citation II
+134,Cessna Citation Mustang
+135,Cessna Citation Sovereign
+136,Cessna Citation X
+137,COMAC C-919
+138,Concorde
+139,Dassault Falcon 2000
+140,Dassault Falcon 50
+141,Dassault Falcon 7X
+142,Dassault Falcon 900
+143,De Havilland Canada DHC-2 Beaver
+144,De Havilland Canada DHC-2 Turbo-Beaver
+145,De Havilland Canada DHC-3 Otter
+146,De Havilland Canada DHC-4 Caribou
+147,De Havilland Canada DHC-6 Twin Otter
+148,De Havilland Canada DHC-7 Dash 7
+149,De Havilland Canada DHC-8-100 Dash 8 / 8Q
+150,De Havilland Canada DHC-8-200 Dash 8 / 8Q
+151,De Havilland Canada DHC-8-300 Dash 8
+152,De Havilland Canada DHC-8-400 Dash 8Q
+153,De Havilland DH.104 Dove
+154,De Havilland DH.114 Heron
+155,Douglas DC-10
+156,Douglas DC-3
+157,Douglas DC-6
+158,Douglas DC-8-50
+159,Douglas DC-8-62
+160,Douglas DC-8-72
+161,Douglas DC-9-10
+162,Douglas DC-9-20
+163,Douglas DC-9-30
+164,Douglas DC-9-40
+165,Douglas DC-9-50
+166,Embraer 170
+167,Embraer 175
+168,Embraer 175 (long wing)
+169,Embraer 175 (short wing)
+170,Embraer 190
+171,Embraer 195
+172,Embraer E190-E2
+173,Embraer E195-E2
+174,Embraer EMB 110 Bandeirante
+175,Embraer EMB 120 Brasilia
+176,Embraer Legacy 450
+177,Embraer Legacy 600
+178,Embraer Phenom 100
+179,Embraer Phenom 300
+180,Embraer RJ135
+181,Embraer RJ140
+182,Embraer RJ145
+183,Fairchild Dornier 328JET
+184,Fairchild Dornier Do.228
+185,Fairchild Dornier Do.328
+186,Fokker 100
+187,Fokker 50
+188,Fokker 70
+189,Fokker F27 Friendship
+190,Fokker F28 Fellowship
+191,Gulfstream Aerospace G-159 Gulfstream I
+192,Gulfstream G280
+193,Gulfstream G650
+194,Gulfstream IV
+195,Gulfstream V
+196,Gulfstream/Rockwell (Aero) Commander
+197,Gulfstream/Rockwell (Aero) Turbo Commander
+198,Harbin Yunshuji Y12
+199,Hawker Siddeley HS 748
+200,Ilyushin IL114
+201,Ilyushin IL18
+202,Ilyushin IL62
+203,Ilyushin IL76
+204,Ilyushin IL86
+205,Ilyushin IL96
+206,Learjet 35
+207,Learjet 60
+208,Lockheed L-1011 Tristar
+209,Lockheed L-1049 Super Constellation
+210,Lockheed L-182 / 282 / 382 (L-100) Hercules
+211,Lockheed L-188 Electra
+212,McDonnell Douglas MD-11
+213,McDonnell Douglas MD-81
+214,McDonnell Douglas MD-82
+215,McDonnell Douglas MD-83
+216,McDonnell Douglas MD-87
+217,McDonnell Douglas MD-88
+218,McDonnell Douglas MD-90
+219,NAMC YS-11
+220,Partenavia P.68
+221,Pilatus Britten-Norman BN-2A Mk III Trislander
+222,Pilatus Britten-Norman BN-2A/B Islander
+223,Pilatus PC-12
+224,Pilatus PC-6 Turbo Porter
+225,Piper PA-28 (above 200 hp)
+226,Piper PA-28 (up to 180 hp)
+227,Piper PA-31 Navajo
+228,Piper PA-44 Seminole
+229,Piper PA-46
+230,Saab 2000
+231,Saab SF340A/B
+232,Shorts SC-5 Belfast
+233,Shorts SC-7 Skyvan
+234,Shorts SD.330
+235,Shorts SD.360
+236,Sikorsky S-58T
+237,Sikorsky S-61
+238,Sikorsky S-76
+239,Sikorsky S-92
+240,Sukhoi Superjet 100-95
+241,Tupolev Tu-134
+242,Tupolev Tu-144
+243,Tupolev Tu-154
+244,Tupolev Tu-204
+245,Yakovlev Yak-40
+246,Yakovlev Yak-42
