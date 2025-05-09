@@ -69,7 +69,7 @@ ORDER BY Delayed_Flights DESC;
 -- 3. Analyse des avions utilisés 
 -- =============================================
 -- Requête pour identifier les modèles d'avion les plus utilisés
-SELECT `Name` AS Aircraft_Model, COUNT(reservations.ID) AS Number_of_Flights
+SELECT `Name` AS Aircraft_Model, COUNT(DISTINCT reservations.`Route ID`) AS Number_of_Flights
 FROM reservations
 JOIN routes ON `Route ID` = routes.ID
 JOIN airplanes ON `Aircraft ID` = airplanes.ID
