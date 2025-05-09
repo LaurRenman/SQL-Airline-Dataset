@@ -47,7 +47,7 @@ Auteur : Ahmad Rafiee (https://www.kaggle.com/datasets/ahmadrafiee/airports-airl
 | **Airlines**     | `ID (PK)`, Name, Country                                               |
 | **Airplanes**    | `ID (PK)`, ModelName                                                    |
 
-(Class peut prendre trois valeurs possibles : 
+(Class peut prendre trois valeurs possibles : Economic, Business et First) 
 
 ### 3.2 Diagramme ER (Mermaid)
 
