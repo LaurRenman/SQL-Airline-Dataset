@@ -9,7 +9,7 @@ GROUP BY passengers.ID, `First Name`, `Last Name`
 ORDER BY reservation_count DESC
 LIMIT 100;
 
--- Passengers with bronze 
+-- Passagers avec entre 5 et 9 vols
 SELECT `First Name`,`Last Name`,COUNT(Passenger_ID) AS reservation_count
 FROM passengers
 JOIN reservations ON passengers.ID = Passenger_ID
@@ -17,7 +17,7 @@ GROUP BY passengers.ID, `First Name`, `Last Name`
 HAVING COUNT(Passenger_ID) BETWEEN 5 AND 9
 ORDER BY reservation_count DESC
 
--- Passengers with silver
+-- Passagers avec entre 10 et 14 vols
 SELECT `First Name`,`Last Name`,COUNT(Passenger_ID) AS reservation_count
 FROM passengers
 JOIN reservations ON passengers.ID = Passenger_ID
@@ -25,7 +25,7 @@ GROUP BY passengers.ID, `First Name`, `Last Name`
 HAVING COUNT(Passenger_ID) BETWEEN 10 AND 14
 ORDER BY reservation_count DESC
 
--- Passengers with gold
+-- Passengers avec plus de 14 vols
 SELECT `First Name`,`Last Name`,COUNT(Passenger_ID) AS reservation_count
 FROM passengers
 JOIN reservations ON passengers.ID = Passenger_ID
@@ -90,3 +90,32 @@ LEFT JOIN airport_arrivals ON airports.ID = airport_arrivals.Airport_ID;
 SELECT * 
 FROM airport_visits
 ORDER BY Total_Visits DESC;
+
+-- =============================================
+-- 5. Compagnies les plus populaires en nombre de passagers
+-- =============================================
+SELECT `Name` AS Airline_Name, COUNT(Passenger_ID) AS Number_of_Passengers
+FROM reservations
+JOIN routes ON `Route ID` = routes.ID
+JOIN airlines ON `Airline ID` = airlines.ID
+GROUP BY airlines.ID, `Name`
+ORDER BY Number_of_Passengers DESC;
+
+
+-- =============================================
+-- 6. Top 10 des destinations favories des voyageurs français par pays 
+-- =============================================
+
+SELECT airports.Country AS Airport_Country,
+    SUM(CASE WHEN Nationality = 'France' THEN 1 ELSE 0 END) AS French_Passengers
+FROM reservations
+JOIN routes ON `Route ID` = routes.ID
+JOIN passengers ON Passenger_ID = passengers.ID
+JOIN airports ON airports.ID IN (`Departure Airport ID`, `Arrival Airport ID`)
+GROUP BY airports.Country
+ORDER BY French_Passengers DESC
+LIMIT 10;
+
+
+
+
