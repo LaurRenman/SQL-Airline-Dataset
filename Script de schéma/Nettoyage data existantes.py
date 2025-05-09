@@ -32,6 +32,7 @@ def clean_airlines():
 def clean_passengers():
     df = pd.read_csv(os.path.join(source_dir, "Airline Dataset Updated - v2.csv"))
     df = df.iloc[:, 1:6]  # Supprimer la première colonne
+    df = df.head(2000)  # Garder seulement les 1500 premières lignes pour alléger la base de donnée
     df.insert(0, "ID", range(1, len(df) + 1))
     df.to_csv(os.path.join(dest_dir, "passengers.csv"), index=False)
 
