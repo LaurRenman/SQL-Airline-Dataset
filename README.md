@@ -35,6 +35,7 @@ Nous utilisons des jeux de données publics et synthétiques disponibles sur kag
 - Scripts Python (Pandas) pour :
   - Supprimer colonnes inutiles.
   - Renumérotation des IDs.
+  - Générations de deux tables (reservations et routes) pour mettre en lien les différents fichiers csv.
   - Filtrage (passagers limités à 2 000, routes à 2 500, réservations à 15 000).
 - Export en CSV puis import dans MySQL via `LOAD DATA INFILE`.
 
@@ -52,8 +53,6 @@ Nous utilisons des jeux de données publics et synthétiques disponibles sur kag
 | **Airports**     | `ID (PK)`, Name, City, Country, Latitude, Longitude, Altitude, Timezone |
 | **Airlines**     | `ID (PK)`, Name, Country                                               |
 | **Airplanes**    | `ID (PK)`, ModelName                                                    |
-
-> **Ajout d’une dimension temporelle** : `FlightDate` dans `Reservations` pour analyses saisonnières.
 
 ## 3.2 Diagramme ER (Mermaid)
 
