@@ -135,7 +135,7 @@ LIMIT 10;
 
 
 -- =============================================
--- 7. Distribution du nombre de réservations par tranche d'âge
+-- 6. Distribution du nombre de réservations par tranche d'âge
 -- =============================================
 
 
