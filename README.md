@@ -42,10 +42,12 @@ Auteur : Ahmad Rafiee (https://www.kaggle.com/datasets/ahmadrafiee/airports-airl
 |------------------|-------------------------------------------------------------------------|
 | **Passengers**   | `ID (PK)`, FirstName, LastName, Gender, Age, Nationality                |
 | **Reservations** | `ID (PK)`, `Passenger_ID (FK)`, `Route_ID (FK)`, `FlightDate`, Class    |
-| **Routes**       | `ID (PK)`, `DepartureAirportID (FK)`, `ArrivalAirportID (FK)`,<br> `AirlineID (FK)`, `AircraftID (FK)`, Delayed (bool) |
+| **Routes**       | `ID (PK)`, `DepartureAirportID (FK)`, `ArrivalAirportID (FK)`,<br> `AirlineID (FK)`, `AircraftID (FK)`, Delayed |
 | **Airports**     | `ID (PK)`, Name, City, Country, Latitude, Longitude, Altitude, Timezone |
 | **Airlines**     | `ID (PK)`, Name, Country                                               |
 | **Airplanes**    | `ID (PK)`, ModelName                                                    |
+
+(Class peut prendre trois valeurs possibles : 
 
 ### 3.2 Diagramme ER (Mermaid)
 
