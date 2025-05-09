@@ -36,17 +36,24 @@ ORDER BY reservation_count DESC
 
 
 -- =============================================
--- 2. Compagnies aériennes avec le plus de retards
+-- 2. Compagnies aériennes avec le plus de retards (en ratio retards/vols totaux)
 -- =============================================
 -- Requête pour identifier les compagnies ayant enregistré le plus de vols retardés
-SELECT `Name` AS Airline_Name, COUNT(*) AS Number_of_Delays
+SELECT 
+    airlines.`Name` AS Airline_Name,
+    COUNT(DISTINCT reservations.`Route ID`) AS Total_Flights,
+    COUNT(DISTINCT CASE WHEN routes.`Delayed` = 1 THEN reservations.`Route ID` END) AS Delayed_Flights,
+    ROUND(
+        COUNT(DISTINCT CASE WHEN routes.`Delayed` = 1 THEN reservations.`Route ID` END) * 1.0 /
+        COUNT(DISTINCT reservations.`Route ID`),
+        3
+    ) AS Delay_Rate_Per_Flight
 FROM reservations
-JOIN routes ON `Route ID` = routes.ID
-JOIN airlines ON `Airline ID` = airlines.ID
-WHERE `Delayed` = 1
-GROUP BY `Name`
-ORDER BY Number_of_Delays DESC
-LIMIT 50;
+JOIN routes ON reservations.`Route ID` = routes.ID
+JOIN airlines ON routes.`Airline ID` = airlines.ID
+GROUP BY airlines.`Name`
+HAVING COUNT(DISTINCT reservations.`Route ID`) > 0
+ORDER BY Delay_Rate_Per_Flight DESC, Total_Flights DESC;
 
 -- =============================================
 -- 3. Avions (modèles) avec le plus de vols
