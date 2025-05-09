@@ -118,8 +118,9 @@ LIMIT 10;
 
 
 -- =============================================
--- 7. Nombre de vols par groupes d'âges
+-- 7. Distribution du nombre réservations par tranche d'âge
 -- =============================================
+
 
 SELECT
     AgeGroup,
