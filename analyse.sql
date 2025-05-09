@@ -106,12 +106,13 @@ LEFT JOIN airport_arrivals ON airports.ID = airport_arrivals.Airport_ID;
 -- 4.1.3 Sélection finale des aéroports les plus fréquentés
 SELECT * 
 FROM airport_visits
-ORDER BY Total_Visits DESC;
+ORDER BY Total_Visits DESC
+LIMIT 40;
 
 
 -- 4.2 Analyse des compagnies les plus fréquentés
 
-SELECT `Name` AS Airline_Name, COUNT(Passenger_ID) AS Number_of_Passengers
+SELECT `Name` AS Airline_Name, Country, COUNT(Passenger_ID) AS Number_of_Passengers
 FROM reservations
 JOIN routes ON `Route ID` = routes.ID
 JOIN airlines ON `Airline ID` = airlines.ID
