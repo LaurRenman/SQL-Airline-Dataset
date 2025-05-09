@@ -35,7 +35,10 @@ GROUP BY airplanes.ID
 ORDER BY Number_of_Flights DESC
 LIMIT 10;
 
--- Most visited airports
+-- =============================================
+-- 4. Aéroports les plus fréquentés
+-- =============================================
+-- 4.1 Création des vues intermediaires pour départs et arrivées
 CREATE VIEW airport_departures AS
 SELECT `Departure Airport ID` AS Airport_ID, COUNT(reservations.ID) AS Departures
 FROM reservations
@@ -47,7 +50,8 @@ SELECT `Arrival Airport ID` AS Airport_ID, COUNT(reservations.ID) AS Arrivals
 FROM reservations
 JOIN routes ON `Route ID`= routes.ID
 GROUP BY `Arrival Airport ID`;
-   
+
+-- 4.2 Vue agrégée des visites (départs + arrivées)
 CREATE VIEW airport_visits AS
 SELECT airports.ID,`Name`,City,Country,
     (IFNULL(Departures, 0) + IFNULL(Arrivals, 0)) AS Total_Visits,
@@ -57,6 +61,7 @@ FROM airports
 LEFT JOIN airport_departures ON airports.ID =  airport_departures.Airport_ID
 LEFT JOIN airport_arrivals ON airports.ID = airport_arrivals.Airport_ID; 
 
+-- 4.3 Sélection finale des aéroports les plus fréquentés
 SELECT * 
 FROM airport_visits
 ORDER BY Total_Visits DESC;
